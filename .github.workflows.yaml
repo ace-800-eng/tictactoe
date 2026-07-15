@@ -1,0 +1,16 @@
+Name: CI/CD Pipeline
+  on:
+    push:
+      branches: master
+  jobs:
+    build:
+      runs-on: ubuntu
+      steps:
+        - uses: actions/checkout@v2
+        - name: my tictactoe
+          run: |
+            docker-compose up -d
+            docker-compose exec web python tictactoe.py
+            
+            
+      
